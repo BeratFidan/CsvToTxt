@@ -1,0 +1,24 @@
+﻿@model IEnumerable<BeratFidanProject.Models.Invoice>
+@{
+
+  
+    string sonuc = "";
+    DateTime tarih = DateTime.Today;
+
+}
+
+
+
+@foreach (var item in Model)
+{
+   Response.AddHeader("content-disposition", "attachment; filename= .txt");
+
+
+    sonuc += "Konu " + tarih + " tarihli faturanız." + Environment.NewLine + "Sayın " + item.Ad + " " + item.Soyad
++ "," + Environment.NewLine + item.FaturaNo + " numaralı hizmet faturanız ekte gonderilmiştir." + Environment.NewLine +
+"Bu donem icin fatura tutarınız: " + item.Tutar + " TL." + Environment.NewLine + Environment.NewLine + "Saygılarımızla,"
++ Environment.NewLine + Environment.NewLine;
+
+}
+
+@sonuc

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BeratFidanProject.Models.Invoice>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h4><b>Invoice Information</b></h4>
+        @using (Html.BeginForm("Import", "Invoice", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Raw(ViewBag.Error)
+            @Html.Raw(ViewBag.Error1)
+            <span>Excel File</span> <input type="file" name="excelfile" />
+            <br />
+            <input type="submit" value="Import" />
+        }
+    </div>
+    <br />
+    <hr />
+    @using (Html.BeginForm("TxtOlustur", "Invoice", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Raw(ViewBag.Error2)
+        @Html.Raw(ViewBag.Error3)
+        @Html.Raw(ViewBag.Error4)
+        <span>Csv File</span> <input type="file" name="excelfile" />
+        <br />
+        <input type="submit" value="Import" />
+
+    }
+
+</body>
+</html>
